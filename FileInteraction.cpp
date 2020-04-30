@@ -126,6 +126,7 @@ string CalculateData_QInt(string p1, string p2, string n1, string oper, string n
 		QInt n1_QInt = ConvertStringToQInt(n1);
 		if (n2 == "")
 		{
+			if (p2 == "10") return GetQIntValue(n1_QInt);
 			if (p2 == "2")
 			{
 				bool* bin = DecToBin(n1_QInt);
@@ -177,6 +178,7 @@ string CalculateData_QInt(string p1, string p2, string n1, string oper, string n
 		bool* n1_bool = stringToBool(n1);
 		if (n2 == "")
 		{
+			if (p2 == "2") return boolToString(n1_bool);
 			if (p2 == "10") return GetQIntValue(BinToDec(n1_bool));
 			if (p2 == "16")
 			{
@@ -248,7 +250,7 @@ string CalculateData_QInt(string p1, string p2, string n1, string oper, string n
 		strcpy(n1_hex, n1.c_str());
 		if (n2 == "")
 		{
-
+			if (p2 == "16") return charHexToString(n1_hex);
 			if (p2 == "2") return boolToString(HexToBin(n1_hex));
 			if (p2 == "10") return GetQIntValue(HexToDec(n1_hex));
 			if (p2 == "~")
