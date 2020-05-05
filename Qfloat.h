@@ -10,6 +10,8 @@ struct Qfloat
 void init(Qfloat&);
 
 
+
+
 std::string stringDecToBin(string s);
 
 string convertAfterComma(string s);

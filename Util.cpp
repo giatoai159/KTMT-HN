@@ -311,35 +311,33 @@ QInt GetABS(const QInt& x) {
 }
 
 char ComparePositive(const QInt& a, const QInt& b) {
-	string aValue = GetQIntValue(a);
-	string bValue = GetQIntValue(b);
+	for (int byteIndex = 0; byteIndex < 16; ++byteIndex)
+		for (int bitIndex = 7; bitIndex >= 0; --bitIndex) {
+			bool bitA = GetBit(a.arrBits[byteIndex], bitIndex);
+			bool bitB = GetBit(b.arrBits[byteIndex], bitIndex);
 
-	if (aValue.length() > bValue.length())
-		return 1;
-	else if (aValue.length() < bValue.length())
-		return 0;
-	else {
-		for (int i = 0; i < aValue.length(); ++i)
-			if (aValue[i] != bValue[i])
-				return aValue[i] > bValue[i];
-	}
+			if (bitA == 1 && bitB == 0)
+				return 1;
+
+			if (bitA == 0 && bitB == 1)
+				return 0;
+		}
 
 	return -1;
 }
 
 char CompareNegative(const QInt& a, const QInt& b) {
-	string aValue = GetQIntValue(a);
-	string bValue = GetQIntValue(b);
+	for (int byteIndex = 0; byteIndex < 16; ++byteIndex)
+		for (int bitIndex = 7; bitIndex >= 0; --bitIndex) {
+			bool bitA = GetBit(a.arrBits[byteIndex], bitIndex);
+			bool bitB = GetBit(b.arrBits[byteIndex], bitIndex);
 
-	if (aValue.length() < bValue.length())
-		return 1;
-	else if (aValue.length() > bValue.length())
-		return 0;
-	else {
-		for (int i = 0; i < aValue.length(); ++i)
-			if (aValue[i] != bValue[i])
-				return aValue[i] < bValue[i];
-	}
+			if (bitA == 1 && bitB == 0)
+				return 1;
+
+			if (bitA == 0 && bitB == 1)
+				return 0;
+		}
 
 	return -1;
 }
