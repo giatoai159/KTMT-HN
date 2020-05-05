@@ -1,70 +1,13 @@
 ﻿#include "Qfloat.h"
+#include "Util.h"
+
 using namespace std;
 
 void init(Qfloat& q) {
 	for (int i = 0; i < 16; ++i)
 		q.arrBits[i] = 0;
 }
-string AddBigInt_float(string A, string B)
-{
-	string res = "";
 
-	while (A.length() < B.length()) A = "0" + A;
-	while (B.length() < A.length()) B = "0" + B;
-
-	bool surplus = 0;
-	for (int i = A.length() - 1; i >= 0; --i)
-	{
-		int sum = (A[i] - '0') + (B[i] - '0') + surplus;
-
-		surplus = sum / 10;
-
-		sum = sum % 10;
-		res += sum + '0';
-	}
-
-	if (surplus > 0) res += '1';
-
-	return string(res.rbegin(), res.rend());
-}
-
-string SubBigInt_float(string A, string B) {
-	string res = "";
-
-	while (B.length() < A.length()) B = "0" + B;
-
-	bool surplus = 0;
-	for (int i = A.length() - 1; i >= 0; --i)
-	{
-		int sub;
-
-		char chA = A[i] - '0';
-		char chB = B[i] - '0' + surplus;
-
-		if (chA < chB) {
-			sub = ((chA + 10) - (chB % 10)) % 10;
-			surplus = 1;
-		}
-		else {
-			sub = chA - chB;
-			surplus = 0;
-		}
-
-		res += sub + '0';
-	}
-
-	int countZeroAtBack = 0;
-	int index = res.length() - 1;
-	while (res[index] == '0') {
-		++countZeroAtBack;
-		--index;
-	}
-
-	res = res.substr(0, res.length() - countZeroAtBack);
-	res += '-';
-
-	return string(res.rbegin(), res.rend());
-}
 string stringDecToBin(string s)
 {
 	string res = "";
@@ -74,10 +17,11 @@ string stringDecToBin(string s)
 			res = "0" + res;
 		else if ((s.back() - '0') % 2 == 1)
 			res = "1" + res;
-		Div2_float(s);
+		Div2(s);
 	}
 	return res;
 }
+
 string convertAfterComma(string s)  //Ham doi string sau dau phay thanh string bit
 {
 	//Y tuong:
@@ -89,7 +33,7 @@ string convertAfterComma(string s)  //Ham doi string sau dau phay thanh string b
 	while (1)
 	{
 		string temp = s;
-		s = AddBigInt_float(s, s);
+		s = AddBigInt(s, s);
 		if (s.length() - 1 == temp.length() && s[0] == '1')
 		{
 			res += '1';
@@ -105,6 +49,7 @@ string convertAfterComma(string s)  //Ham doi string sau dau phay thanh string b
 	}
 	return res;
 }
+
 string subStringBit(string b1, string b2)
 {
 	string res = "";
@@ -144,21 +89,8 @@ string subStringBit(string b1, string b2)
 }
 
 
-
-bool GetBit_float(char byte, int index) {
-	return (byte >> index) & 1;
-}
-
-bool GetBitSign(const Qfloat& x) {
-	return GetBit_float(x.arrBits[0], 7);
-}
-
-void OnBit_float(char& byte, int index) {
-	byte |= (1 << index);
-}
-
-void OffBit_float(char& byte, int index) {
-	byte &= 255 - (int)(pow(2, index));
+bool GetBitSign_Float(const Qfloat& x) {
+	return GetBit(x.arrBits[0], 7);
 }
 
 //bool CheckInput(string& input) {
@@ -188,37 +120,22 @@ void OffBit_float(char& byte, int index) {
 //	return true;
 //}
 
-void SetBit(Qfloat& x, int index, bool bit) {
+void SetBit_Float(Qfloat& x, int index, bool bit) {
 	if (bit)
 		//x.arrBits[15 - index / 8] |= 128 >> (7 - index % 8);
-		OnBit_float(x.arrBits[15 - index / 8], index - (index / 8) * 8);
+		OnBit(x.arrBits[15 - index / 8], index - (index / 8) * 8);
 }
 
-void SetBitSign(Qfloat& x) {
-	OnBit_float(x.arrBits[0], 7);
+void SetBitSign_Float(Qfloat& x) {
+	OnBit(x.arrBits[0], 7);
 }
 
-bool GetBit_float(Qfloat q, int index)
+bool GetBit_Float(Qfloat q, int index)
 {
-	return GetBit_float(q.arrBits[15 - index / 8], index - (index / 8) * 8);
+	return GetBit(q.arrBits[15 - index / 8], index - (index / 8) * 8);
 }
-void Div2_float(string& strNumbers) {
-	string res = "";
-	bool surplus = 0;
-	int strNumbersLen = strNumbers.length();
 
-	for (int i = 0; i < strNumbersLen; ++i) {
-		int devidend = surplus * 10 + strNumbers[i] - '0';
 
-		res += devidend / 2 + '0';
-
-		surplus = devidend - (res.back() - '0') * 2;
-	}
-
-	if (res[0] == '0')
-		res = res.substr(1, res.length() - 1);
-	strNumbers = res;
-}
 void Div2ToPrint(string& strNumbers) {
 	string res = "";
 	bool surplus = 0;
@@ -233,6 +150,7 @@ void Div2ToPrint(string& strNumbers) {
 	}
 	strNumbers = res;
 }
+
 string QfloatToStringBin(string s)
 {
 	bool sign = 0;
@@ -311,7 +229,7 @@ string QfloatToStringBin(string s)
 				exp = (char)((temp % 10) + '0') + exp;
 				temp /= 10;
 			}
-			exp = AddBigInt_float(exp, "16383");
+			exp = AddBigInt(exp, "16383");
 		}
 	}
 	else if (check == 0)
@@ -337,7 +255,7 @@ string QfloatToStringBin(string s)
 				exp = (char)((temp % 10) + '0') + exp;
 				temp /= 10;
 			}
-			exp = SubBigInt_float("16383", exp);
+			exp = SubBigInt("16383", exp);
 			exp = exp.substr(1, exp.length() - 1);
 		}
 	};
@@ -402,10 +320,10 @@ Qfloat ConvertStringToQfloat(string s) {
 	}
 	// dua bit vao Qfloat
 	if (sign)
-		SetBitSign(res);
+		SetBitSign_Float(res);
 	string finalStringBit = QfloatToStringBin(s);
 	for (int i = 0; i < 127; i++)
-		SetBit(res, i, finalStringBit[127 - i] - '0');
+		SetBit_Float(res, i, finalStringBit[127 - i] - '0');
 	//cout << finalStringBit << endl;
 	return res;
 }
@@ -416,19 +334,22 @@ void ScanQfloat(Qfloat& q)
 	cin >> str;
 	q = ConvertStringToQfloat(str);
 }
+
 string x5(string str)
 {
 	string res = str;
 	res.push_back('0');
-	Div2_float(res);
+	Div2(res);
 	return res;
 }
+
 string Pow5(int x)
 {
 	if (x == 1)
 		return "5";
 	return x5(Pow5(x - 1));
 }
+
 string PowNegativeTwo(int x)
 {
 	string res = "";
@@ -437,50 +358,30 @@ string PowNegativeTwo(int x)
 		res = "0" + res;
 	return res;
 }
-string AddBigIntAfterComma(string A, string B) {
-	string res = "";
 
-	while (A.length() < B.length()) A += "0";
-	while (B.length() < A.length()) B += "0";
-
-	bool surplus = 0;
-	for (int i = A.length() - 1; i >= 0; --i)
-	{
-		int sum = (A[i] - '0') + (B[i] - '0') + surplus;
-
-		surplus = sum / 10;
-
-		sum = sum % 10;
-		res += sum + '0';
-	}
-
-	if (surplus > 0) res += '1';
-
-	return string(res.rbegin(), res.rend());
-}
 void PrintQfloat(Qfloat& q)
 {
 	string res;
 	// xu ly phan nguyen
 	int exp = 0;
 	for (int i = 126; i > 111; i--)
-		if (GetBit_float(q, i))
+		if (GetBit_Float(q, i))
 			exp += pow(2, i - 112);
 	exp -= 16383;
 	//xu ly phan thap phan
 	string afterComma = "0";
 	for (int i = 0; i < 112; i++)
-		if (GetBit_float(q, i))
-			afterComma = AddBigIntAfterComma(afterComma, PowNegativeTwo(112 - i));
+		if (GetBit_Float(q, i))
+			afterComma = AddBigInt(afterComma, PowNegativeTwo(112 - i));
 	int indexComma = afterComma.length();
 	afterComma = "1" + afterComma;
 	if (exp >= 0 && exp <= 16383)
 	{
 		for (int i = 0; i < exp; i++)
-			afterComma = AddBigInt_float(afterComma, afterComma);
+			afterComma = AddBigInt(afterComma, afterComma);
 		res = afterComma;
 		res = res.insert(res.length() - indexComma, ".");
-		if (GetBitSign(q))
+		if (GetBitSign_Float(q))
 			res = "-" + res;
 		cout << res;
 	}
@@ -490,13 +391,14 @@ void PrintQfloat(Qfloat& q)
 		for (int i = 0; i < abs(exp); i++)
 			Div2ToPrint(temp);
 		res = temp.insert(temp.length() - indexComma, ".");
-		if (GetBitSign(q))
+		if (GetBitSign_Float(q))
 			res = "-" + res;
 		cout << res;
 	}
 	else if (exp > 16383)
 		cout << "inf";
 }
+
 string QfloatBitToString(string bit)
 {
 	string res;
@@ -510,13 +412,13 @@ string QfloatBitToString(string bit)
 	string afterComma = "0";
 	for (int i = 16; i < 128; i++)
 		if (bit[i] == '1')
-			afterComma = AddBigIntAfterComma(afterComma, PowNegativeTwo(i - 15));
+			afterComma = AddBigInt(afterComma, PowNegativeTwo(i - 15));
 	int indexComma = afterComma.length();
 	afterComma = "1" + afterComma;
 	if (exp >= 0 && exp <= 16383)
 	{
 		for (int i = 0; i < exp; i++)
-			afterComma = AddBigInt_float(afterComma, afterComma);
+			afterComma = AddBigInt(afterComma, afterComma);
 		res = afterComma;
 		res = res.insert(res.length() - indexComma, ".");
 		if (bit[0] == '1')

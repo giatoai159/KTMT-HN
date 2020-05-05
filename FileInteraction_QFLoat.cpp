@@ -1,4 +1,4 @@
-#include"FileInteraction_QFLoat.h"
+#include"FileInteraction_QfLoat.h"
 
 void processDataFromFile_QFloat(string inputFile, string outputFile)
 {

@@ -1,7 +1,7 @@
 #pragma once
 
 #include"QInt.h"
-#include"UtilQInt.h"
+#include"Util.h"
 #include<sstream>
 #include<fstream>
 

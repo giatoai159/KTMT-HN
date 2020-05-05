@@ -16,7 +16,8 @@
 	index: [76543210]
 */
 
-struct QInt {
+class QInt {
+public:
 	char arrBits[16];
 	
 	// Set all bit is zero

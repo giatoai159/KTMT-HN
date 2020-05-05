@@ -1,6 +1,6 @@
 #pragma once
 
-#include"QFloat.h"
+#include"Qfloat.h"
 #include<sstream>
 #include<fstream>
 
