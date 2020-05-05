@@ -1,4 +1,6 @@
+#pragma once
 #include "Util.h"
+#include "Qfloat.h"
 #include <map>
 
 using namespace std;
@@ -36,6 +38,28 @@ string AddBigInt(string A, string B) {
 
 	while (A.length() < B.length()) A = "0" + A;
 	while (B.length() < A.length()) B = "0" + B;
+
+	bool surplus = 0;
+	for (int i = A.length() - 1; i >= 0; --i)
+	{
+		int sum = (A[i] - '0') + (B[i] - '0') + surplus;
+
+		surplus = sum / 10;
+
+		sum = sum % 10;
+		res += sum + '0';
+	}
+
+	if (surplus > 0) res += '1';
+
+	return string(res.rbegin(), res.rend());
+}
+
+string AddBigIntAfterComma(string A, string B) {
+	string res = "";
+
+	while (A.length() < B.length()) A += "0";
+	while (B.length() < A.length()) B += "0";
 
 	bool surplus = 0;
 	for (int i = A.length() - 1; i >= 0; --i)
@@ -347,3 +371,20 @@ string ConvertBinToString(bool* bin) {
 	return res;
 }
 
+bool GetBitSign_Float(const Qfloat& x) {
+	return GetBit(x.arrBits[0], 7);
+}
+
+void SetBit_Float(Qfloat& x, int index, bool bit) {
+	if (bit)
+		OnBit(x.arrBits[15 - index / 8], index - (index / 8) * 8);
+}
+
+void SetBitSign_Float(Qfloat& x) {
+	OnBit(x.arrBits[0], 7);
+}
+
+bool GetBit_Float(Qfloat q, int index)
+{
+	return GetBit(q.arrBits[15 - index / 8], index - (index / 8) * 8);
+}

@@ -1,5 +1,5 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "Menu.h"
-
 void FancyWords()
 {
 	cout << "     ____                                                           " << endl;

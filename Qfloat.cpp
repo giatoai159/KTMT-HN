@@ -1,4 +1,5 @@
-﻿#include "Qfloat.h"
+﻿#pragma once
+#include "Qfloat.h"
 #include "Util.h"
 
 using namespace std;
@@ -7,6 +8,8 @@ void init(Qfloat& q) {
 	for (int i = 0; i < 16; ++i)
 		q.arrBits[i] = 0;
 }
+
+
 
 string stringDecToBin(string s)
 {
@@ -88,54 +91,6 @@ string subStringBit(string b1, string b2)
 	return res;
 }
 
-
-bool GetBitSign_Float(const Qfloat& x) {
-	return GetBit(x.arrBits[0], 7);
-}
-
-//bool CheckInput(string& input) {
-//	int start = 0;
-//
-//	if (input[0] == '-') {
-//		start = 1;
-//	}
-//
-//	for (int i = start; i < input.length(); ++i) {
-//		if (input[i] < '0' || input[i] > '9') {
-//			return false;
-//		}
-//	}
-//
-//	int countZeroAtBegin = 0;
-//	int index = start;
-//
-//	while (input[index] == '0') {
-//		++countZeroAtBegin;
-//		++index;
-//	}
-//
-//	if (countZeroAtBegin != 0)
-//		input = input.substr(index, input.length() - countZeroAtBegin);
-//
-//	return true;
-//}
-
-void SetBit_Float(Qfloat& x, int index, bool bit) {
-	if (bit)
-		//x.arrBits[15 - index / 8] |= 128 >> (7 - index % 8);
-		OnBit(x.arrBits[15 - index / 8], index - (index / 8) * 8);
-}
-
-void SetBitSign_Float(Qfloat& x) {
-	OnBit(x.arrBits[0], 7);
-}
-
-bool GetBit_Float(Qfloat q, int index)
-{
-	return GetBit(q.arrBits[15 - index / 8], index - (index / 8) * 8);
-}
-
-
 void Div2ToPrint(string& strNumbers) {
 	string res = "";
 	bool surplus = 0;
@@ -201,7 +156,12 @@ string QfloatToStringBin(string s)
 
 	// is zero
 	if (frontComma == "0" && afterComma == "0")
-		return "0.0";
+	{
+		string res = "";
+		for (int i = 0; i < 128; i++)
+			res += "0";
+		return res;
+	}
 
 	string binFrontComma = stringDecToBin(frontComma);
 	string binAfterComma = convertAfterComma(afterComma);
@@ -372,7 +332,7 @@ void PrintQfloat(Qfloat& q)
 	string afterComma = "0";
 	for (int i = 0; i < 112; i++)
 		if (GetBit_Float(q, i))
-			afterComma = AddBigInt(afterComma, PowNegativeTwo(112 - i));
+			afterComma = AddBigIntAfterComma(afterComma, PowNegativeTwo(112 - i));
 	int indexComma = afterComma.length();
 	afterComma = "1" + afterComma;
 	if (exp >= 0 && exp <= 16383)
@@ -412,13 +372,13 @@ string QfloatBitToString(string bit)
 	string afterComma = "0";
 	for (int i = 16; i < 128; i++)
 		if (bit[i] == '1')
-			afterComma = AddBigInt(afterComma, PowNegativeTwo(i - 15));
+			afterComma = AddBigIntAfterComma(afterComma, PowNegativeTwo(i - 15));
 	int indexComma = afterComma.length();
 	afterComma = "1" + afterComma;
 	if (exp >= 0 && exp <= 16383)
 	{
 		for (int i = 0; i < exp; i++)
-			afterComma = AddBigInt(afterComma, afterComma);
+			afterComma = AddBigIntAfterComma(afterComma, afterComma);
 		res = afterComma;
 		res = res.insert(res.length() - indexComma, ".");
 		if (bit[0] == '1')

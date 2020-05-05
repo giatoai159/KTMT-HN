@@ -1,14 +1,18 @@
+
 #pragma once
 #include "QInt.h"
+#include "Qfloat.h"
 #include <string>
 
 QInt ConvertStringToQInt(std::string s);
 
 /*
 	Add two big number ex: 1324578974516541321310 + 485679846516532131486
-	return result 
+	return result
 */
 std::string AddBigInt(std::string A, std::string B);
+
+std::string AddBigIntAfterComma(std::string A, std::string B);
 
 /*
 	this function use for -2^128. ex : -2^128 + 1324564897611314984651
@@ -70,4 +74,8 @@ std::string _2PowN(int);
 char ComparePositive(const QInt&, const QInt&);
 char CompareNegative(const QInt&, const QInt&);
 
+bool GetBitSign_Float(const Qfloat& x);
+void SetBit_Float(Qfloat&, int, bool);
+bool GetBit_Float(Qfloat, int);
+void SetBitSign_Float(Qfloat& x);
 

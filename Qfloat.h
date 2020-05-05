@@ -1,7 +1,6 @@
 #pragma once
 #include <iostream>
 #include <string>
-#include "Util.h"
 
 using namespace std;
 struct Qfloat
@@ -10,20 +9,14 @@ struct Qfloat
 };
 void init(Qfloat&);
 
+
 std::string stringDecToBin(string s);
 
 string convertAfterComma(string s);
 string subStringBit(string b1, string b2);
 
-
-//bool CheckInput(std::string&); ///????
-
 void Div2ToPrint(std::string&);
 
-bool GetBitSign_Float(const Qfloat& x);
-void SetBit_Float(Qfloat&, int, bool);
-bool GetBit_Float(Qfloat, int);
-void SetBitSign_Float(Qfloat& x);
 
 string QfloatToStringBin(string s); //(*)
 Qfloat ConvertStringToQfloat(string s);
