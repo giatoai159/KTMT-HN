@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include<iostream>
 #include<string>
@@ -9,6 +9,7 @@
 #include"FileInteraction_QFLoat.h"
 #include<conio.h>
 using namespace std;
+// Xử lý menu console bằng switch
 
 void FancyWords();
 void ThongTinDoAn();
