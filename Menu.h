@@ -21,3 +21,4 @@ void MenuQIntHexadecimal();
 void MenuQIntDecimal();
 
 void MenuQFloat();
+

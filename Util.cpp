@@ -386,3 +386,79 @@ bool GetBit_Float(Qfloat q, int index)
 {
 	return GetBit(q.arrBits[15 - index / 8], index - (index / 8) * 8);
 }
+
+string EnterBinary(string str)
+{
+	string s;
+	bool flag = false;
+	unsigned int i;
+	do
+	{
+		cout << str; cin >> s;
+		for (i = 0; i < s.length(); i++)
+		{
+			if (s[i] != '0' && s[i] != '1')
+			{
+				flag = false;
+				break;
+			}
+			else flag = true;
+		}
+		if (flag == false) cout << "Du lieu nhap vao khong hop le. Xin vui long nhap lai." << endl;
+		else if (s.length() > 128)
+		{
+			flag = false;
+			cout << "Du lieu nhap vao khong duoc dai hon 128 ki tu. Xin vui long nhap lai." << endl;
+		}
+	} while (flag == false);
+	return s;
+}
+
+string EnterHexadecimal(string str)
+{
+	string s;
+	bool flag = false;
+	unsigned int i;
+	do
+	{
+		cout << str; cin >> s;
+		for (i = 0; i < s.length(); i++)
+		{
+			if ((s[i] < 'A' || s[i] > 'F') && (s[i] < '0' || s[i] > '9'))
+			{
+				flag = false;
+				break;
+			}
+			else flag = true;
+		}
+		if (flag == false) cout << "Du lieu nhap vao khong hop le. Xin vui long nhap lai." << endl;
+		else if (s.length() > 32)
+		{
+			flag = false;
+			cout << "Du lieu nhap vao khong duoc dai hon 32 ki tu. Xin vui long nhap lai." << endl;
+		}
+	} while (flag == false);
+	return s;
+}
+
+string EnterDecimal(string str)
+{
+	string s;
+	bool flag = false;
+	unsigned int i;
+	do
+	{
+		cout << str; cin >> s;
+		for (i = 0; i < s.length(); i++)
+		{
+			if (s[i] < '0' || s[i] > '9')
+			{
+				flag = false;
+				break;
+			}
+			else flag = true;
+		}
+		if (flag == false) cout << "Du lieu nhap vao khong hop le. Xin vui long nhap lai." << endl;
+	} while (flag == false);
+	return s;
+}

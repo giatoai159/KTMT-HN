@@ -3,6 +3,7 @@
 #include "QInt.h"
 #include "Qfloat.h"
 #include <string>
+#include <algorithm>
 
 QInt ConvertStringToQInt(std::string s);
 
@@ -78,4 +79,9 @@ bool GetBitSign_Float(const Qfloat& x);
 void SetBit_Float(Qfloat&, int, bool);
 bool GetBit_Float(Qfloat, int);
 void SetBitSign_Float(Qfloat& x);
+
+
+string EnterBinary(string str);
+string EnterHexadecimal(string str);
+string EnterDecimal(string str);
 

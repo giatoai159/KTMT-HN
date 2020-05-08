@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS
+﻿#define _CRT_SECURE_NO_WARNINGS
 #include "Menu.h"
 void FancyWords()
 {
@@ -105,7 +105,7 @@ void MenuQIntBinary()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                 CHUYEN TU HE 2 SANG HE 10                   |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type: "; cin >> input;
+			input = EnterBinary("                   Type: ");
 			cout << "                   Result 2 --> 10: " << BinToDec(stringToBool(input));
 			cout << "\nPress any key to continue...";
 			_getch();
@@ -118,7 +118,7 @@ void MenuQIntBinary()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                  CHUYEN TU HE 2 SANG HE 16                  |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type: "; cin >> input;
+			input = EnterBinary("                   Type: ");
 			cout << "                   Result 2 --> 16: " << charHexToString(BinToHex(stringToBool(input)));
 			cout << "\nPress any key to continue...";
 			_getch();
@@ -131,8 +131,8 @@ void MenuQIntBinary()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                            AND                              |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type first input: "; cin >> input1;
-			cout << "                   Type second input: "; cin >> input2;
+			input1 = EnterBinary("                   Type first input: ");
+			input2 = EnterBinary("                   Type second input: ");
 			QInt input1_QInt = BinToDec(stringToBool(input1));
 			QInt input2_QInt = BinToDec(stringToBool(input2));
 			cout << "                   Result AND: " << boolToString(DecToBin(input1_QInt & input2_QInt));
@@ -147,8 +147,8 @@ void MenuQIntBinary()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                              OR                             |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type first input: "; cin >> input1;
-			cout << "                   Type second input: "; cin >> input2;
+			input1 = EnterBinary("                   Type first input: ");
+			input2 = EnterBinary("                   Type second input: ");
 			QInt input1_QInt = BinToDec(stringToBool(input1));
 			QInt input2_QInt = BinToDec(stringToBool(input2));
 			cout << "                   Result OR: " << boolToString(DecToBin(input1_QInt | input2_QInt));
@@ -163,8 +163,8 @@ void MenuQIntBinary()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                              XOR                            |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type first input: "; cin >> input1;
-			cout << "                   Type second input: "; cin >> input2;
+			input1 = EnterBinary("                   Type first input: ");
+			input2 = EnterBinary("                   Type second input: ");
 			QInt input1_QInt = BinToDec(stringToBool(input1));
 			QInt input2_QInt = BinToDec(stringToBool(input2));
 			cout << "                   Result XOR: " << boolToString(DecToBin(input1_QInt ^ input2_QInt));
@@ -179,7 +179,7 @@ void MenuQIntBinary()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                              NOT                            |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type: "; cin >> input;
+			input = EnterBinary("                   Type: ");
 			QInt input_QInt = BinToDec(stringToBool(input));
 			cout << "Result NOT: " << boolToString(DecToBin(~input_QInt));
 			cout << "\nPress any key to continue...";
@@ -193,8 +193,8 @@ void MenuQIntBinary()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                              ADD                            |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type first input: "; cin >> input1;
-			cout << "                   Type second input: "; cin >> input2;
+			input1 = EnterBinary("                   Type first input: ");
+			input2 = EnterBinary("                   Type second input: ");
 			QInt input1_QInt = BinToDec(stringToBool(input1));
 			QInt input2_QInt = BinToDec(stringToBool(input2));
 			cout << "                   Result ADD: " << boolToString(DecToBin(input1_QInt + input2_QInt));
@@ -209,8 +209,8 @@ void MenuQIntBinary()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                           SUBTRACT                          |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type first input: "; cin >> input1;
-			cout << "                   Type second input: "; cin >> input2;
+			input1 = EnterBinary("                   Type first input: ");
+			input2 = EnterBinary("                   Type second input: ");
 			QInt input1_QInt = BinToDec(stringToBool(input1));
 			QInt input2_QInt = BinToDec(stringToBool(input2));
 			cout << "                   Result SUBTRACT: " << boolToString(DecToBin(input1_QInt - input2_QInt));
@@ -225,8 +225,8 @@ void MenuQIntBinary()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                           MULTIPLY                          |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type first input: "; cin >> input1;
-			cout << "                   Type second input: "; cin >> input2;
+			input1 = EnterBinary("                   Type first input: ");
+			input2 = EnterBinary("                   Type second input: ");
 			QInt input1_QInt = BinToDec(stringToBool(input1));
 			QInt input2_QInt = BinToDec(stringToBool(input2));
 			cout << "                   Result MULTIPLY: " << boolToString(DecToBin(input1_QInt * input2_QInt));
@@ -241,8 +241,8 @@ void MenuQIntBinary()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                           DIVIDE                          |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type first input: "; cin >> input1;
-			cout << "                   Type second input: "; cin >> input2;
+			input1 = EnterBinary("                   Type first input: ");
+			input2 = EnterBinary("                   Type second input: ");
 			QInt input1_QInt = BinToDec(stringToBool(input1));
 			QInt input2_QInt = BinToDec(stringToBool(input2));
 			cout << "                   Result DIVIDE: " << boolToString(DecToBin(input1_QInt / input2_QInt));
@@ -257,7 +257,7 @@ void MenuQIntBinary()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                          SHIFT LEFT                         |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type: "; cin >> input1;
+			input1 = EnterBinary("                   Type: ");
 			cout << "                   Shift left x times: "; cin >> input2;
 			QInt input1_QInt = BinToDec(stringToBool(input1));
 			cout << "                   Result SHIFT LEFT: " << boolToString(DecToBin(input1_QInt << stoi(input2)));
@@ -272,7 +272,7 @@ void MenuQIntBinary()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                          SHIFT RIGHT                         |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type: "; cin >> input1;
+			input1 = EnterBinary("                   Type: ");
 			cout << "                   Shift right x times: "; cin >> input2;
 			QInt input1_QInt = BinToDec(stringToBool(input1));
 			cout << "                   Result SHIFT RIGHT: " << boolToString(DecToBin(input1_QInt >> stoi(input2)));
@@ -287,7 +287,7 @@ void MenuQIntBinary()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                          ROTATE LEFT                        |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type: "; cin >> input1;
+			input1 = EnterBinary("                   Type: ");
 			cout << "                   Rotate left x times: "; cin >> input2;
 			QInt input1_QInt = BinToDec(stringToBool(input1));
 			rol(input1_QInt, stoi(input2));
@@ -303,7 +303,7 @@ void MenuQIntBinary()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                         ROTATE RIGHT                        |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type: "; cin >> input1;
+			input1 = EnterBinary("                   Type: ");
 			cout << "                   Rotate right x times: "; cin >> input2;
 			QInt input1_QInt = BinToDec(stringToBool(input1));
 			ror(input1_QInt, stoi(input2));
@@ -319,8 +319,8 @@ void MenuQIntBinary()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                        GREATER THAN                         |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type first input: "; cin >> input1;
-			cout << "                   Type second input: "; cin >> input2;
+			input1 = EnterBinary("                   Type first input: ");
+			input2 = EnterBinary("                   Type second input: ");
 			QInt input1_QInt = BinToDec(stringToBool(input1));
 			QInt input2_QInt = BinToDec(stringToBool(input2));
 			cout << "                   Result GREATER THAN: ";
@@ -337,8 +337,8 @@ void MenuQIntBinary()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                          LESS THAN                          |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type first input: "; cin >> input1;
-			cout << "                   Type second input: "; cin >> input2;
+			input1 = EnterBinary("                   Type first input: ");
+			input2 = EnterBinary("                   Type second input: ");
 			QInt input1_QInt = BinToDec(stringToBool(input1));
 			QInt input2_QInt = BinToDec(stringToBool(input2));
 			cout << "                   Result LESS THAN: ";
@@ -355,8 +355,8 @@ void MenuQIntBinary()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                          EQUAL TO                           |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type first input: "; cin >> input1;
-			cout << "                   Type second input: "; cin >> input2;
+			input1 = EnterBinary("                   Type first input: ");
+			input2 = EnterBinary("                   Type second input: ");
 			QInt input1_QInt = BinToDec(stringToBool(input1));
 			QInt input2_QInt = BinToDec(stringToBool(input2));
 			cout << "                   Result EQUAL TO: ";
@@ -373,8 +373,8 @@ void MenuQIntBinary()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                        NOT EQUAL TO                         |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type first input: "; cin >> input1;
-			cout << "                   Type second input: "; cin >> input2;
+			input1 = EnterBinary("                   Type first input: ");
+			input2 = EnterBinary("                   Type second input: ");
 			QInt input1_QInt = BinToDec(stringToBool(input1));
 			QInt input2_QInt = BinToDec(stringToBool(input2));
 			cout << "                   Result NOT EQUAL TO: ";
@@ -391,8 +391,8 @@ void MenuQIntBinary()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                       GREATER OR EQUAL                      |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type first input: "; cin >> input1;
-			cout << "                   Type second input: "; cin >> input2;
+			input1 = EnterBinary("                   Type first input: ");
+			input2 = EnterBinary("                   Type second input: ");
 			QInt input1_QInt = BinToDec(stringToBool(input1));
 			QInt input2_QInt = BinToDec(stringToBool(input2));
 			cout << "                   Result GREATER OR EQUAL: ";
@@ -409,8 +409,8 @@ void MenuQIntBinary()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                        LESS OR EQUAL                        |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type first input: "; cin >> input1;
-			cout << "                   Type second input: "; cin >> input2;
+			input1 = EnterBinary("                   Type first input: ");
+			input2 = EnterBinary("                   Type second input: ");
 			QInt input1_QInt = BinToDec(stringToBool(input1));
 			QInt input2_QInt = BinToDec(stringToBool(input2));
 			cout << "                   Result LESS OR EQUAL: ";
@@ -466,7 +466,7 @@ void MenuQIntHexadecimal()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                 CHUYEN TU HE 16 SANG HE 10                  |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type: "; cin >> input;
+			input = EnterHexadecimal("                   Type: ");
 			int n = input.length();
 			while (n < 32)
 			{
@@ -487,7 +487,7 @@ void MenuQIntHexadecimal()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                 CHUYEN TU HE 16 SANG HE 2                   |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type: "; cin >> input;
+			input = EnterHexadecimal("                   Type: ");
 			int n = input.length();
 			while (n < 32)
 			{
@@ -508,7 +508,7 @@ void MenuQIntHexadecimal()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                            AND                              |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type first input: "; cin >> input1;
+			input1 = EnterHexadecimal("                   Type first input: ");
 			int n = input1.length();
 			while (n < 32)
 			{
@@ -517,7 +517,7 @@ void MenuQIntHexadecimal()
 			}
 			char* input1_hex = new char[n];
 			strcpy(input1_hex, input1.c_str());
-			cout << "                   Type second input: "; cin >> input2;
+			input2 = EnterHexadecimal("                   Type second input: ");
 			n = input2.length();
 			while (n < 32)
 			{
@@ -540,7 +540,7 @@ void MenuQIntHexadecimal()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                             OR                              |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type first input: "; cin >> input1;
+			input1 = EnterHexadecimal("                   Type first input: ");
 			int n = input1.length();
 			while (n < 32)
 			{
@@ -549,7 +549,7 @@ void MenuQIntHexadecimal()
 			}
 			char* input1_hex = new char[n];
 			strcpy(input1_hex, input1.c_str());
-			cout << "                   Type second input: "; cin >> input2;
+			input2 = EnterHexadecimal("                   Type second input: ");
 			n = input2.length();
 			while (n < 32)
 			{
@@ -572,7 +572,7 @@ void MenuQIntHexadecimal()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                              XOR                            |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type first input: "; cin >> input1;
+			input1 = EnterHexadecimal("                   Type first input: ");
 			int n = input1.length();
 			while (n < 32)
 			{
@@ -581,7 +581,7 @@ void MenuQIntHexadecimal()
 			}
 			char* input1_hex = new char[n];
 			strcpy(input1_hex, input1.c_str());
-			cout << "                   Type second input: "; cin >> input2;
+			input2 = EnterHexadecimal("                   Type second input: ");
 			n = input2.length();
 			while (n < 32)
 			{
@@ -604,7 +604,7 @@ void MenuQIntHexadecimal()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                              NOT                            |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type: "; cin >> input;
+			input = EnterHexadecimal("                   Type: ");
 			int n = input.length();
 			while (n < 32)
 			{
@@ -626,7 +626,7 @@ void MenuQIntHexadecimal()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                              ADD                            |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type first input: "; cin >> input1;
+			input1 = EnterHexadecimal("                   Type first input: ");
 			int n = input1.length();
 			while (n < 32)
 			{
@@ -635,7 +635,7 @@ void MenuQIntHexadecimal()
 			}
 			char* input1_hex = new char[n];
 			strcpy(input1_hex, input1.c_str());
-			cout << "                   Type second input: "; cin >> input2;
+			input2 = EnterHexadecimal("                   Type second input: ");
 			n = input2.length();
 			while (n < 32)
 			{
@@ -658,7 +658,7 @@ void MenuQIntHexadecimal()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                           SUBTRACT                          |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type first input: "; cin >> input1;
+			input1 = EnterHexadecimal("                   Type first input: ");
 			int n = input1.length();
 			while (n < 32)
 			{
@@ -667,7 +667,7 @@ void MenuQIntHexadecimal()
 			}
 			char* input1_hex = new char[n];
 			strcpy(input1_hex, input1.c_str());
-			cout << "                   Type second input: "; cin >> input2;
+			input2 = EnterHexadecimal("                   Type second input: ");
 			n = input2.length();
 			while (n < 32)
 			{
@@ -690,7 +690,7 @@ void MenuQIntHexadecimal()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                           MULTIPLY                          |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type first input: "; cin >> input1;
+			input1 = EnterHexadecimal("                   Type first input: ");
 			int n = input1.length();
 			while (n < 32)
 			{
@@ -699,7 +699,7 @@ void MenuQIntHexadecimal()
 			}
 			char* input1_hex = new char[n];
 			strcpy(input1_hex, input1.c_str());
-			cout << "                   Type second input: "; cin >> input2;
+			input2 = EnterHexadecimal("                   Type second input: ");
 			n = input2.length();
 			while (n < 32)
 			{
@@ -722,7 +722,7 @@ void MenuQIntHexadecimal()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                           DIVIDE                          |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type first input: "; cin >> input1;
+			input1 = EnterHexadecimal("                   Type first input: ");
 			int n = input1.length();
 			while (n < 32)
 			{
@@ -731,7 +731,7 @@ void MenuQIntHexadecimal()
 			}
 			char* input1_hex = new char[n];
 			strcpy(input1_hex, input1.c_str());
-			cout << "                   Type second input: "; cin >> input2;
+			input2 = EnterHexadecimal("                   Type second input: ");
 			n = input2.length();
 			while (n < 32)
 			{
@@ -754,7 +754,7 @@ void MenuQIntHexadecimal()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                          SHIFT LEFT                         |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type: "; cin >> input1;
+			input1 = EnterHexadecimal("                   Type: ");
 			int n = input1.length();
 			while (n < 32)
 			{
@@ -777,7 +777,7 @@ void MenuQIntHexadecimal()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                          SHIFT RIGHT                         |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type: "; cin >> input1;
+			input1 = EnterHexadecimal("                   Type: ");
 			int n = input1.length();
 			while (n < 32)
 			{
@@ -800,7 +800,7 @@ void MenuQIntHexadecimal()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                          ROTATE LEFT                        |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type: "; cin >> input1;
+			input1 = EnterHexadecimal("                   Type: ");
 			int n = input1.length();
 			while (n < 32)
 			{
@@ -824,7 +824,7 @@ void MenuQIntHexadecimal()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                         ROTATE RIGHT                        |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type: "; cin >> input1;
+			input1 = EnterHexadecimal("                   Type: ");
 			int n = input1.length();
 			while (n < 32)
 			{
@@ -848,7 +848,7 @@ void MenuQIntHexadecimal()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                        GREATER THAN                         |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type first input: "; cin >> input1;
+			input1 = EnterHexadecimal("                   Type first input: ");
 			int n = input1.length();
 			while (n < 32)
 			{
@@ -857,7 +857,7 @@ void MenuQIntHexadecimal()
 			}
 			char* input1_hex = new char[n];
 			strcpy(input1_hex, input1.c_str());
-			cout << "                   Type second input: "; cin >> input2;
+			input2 = EnterHexadecimal("                   Type second input: ");
 			n = input2.length();
 			while (n < 32)
 			{
@@ -882,7 +882,7 @@ void MenuQIntHexadecimal()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                          LESS THAN                          |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type first input: "; cin >> input1;
+			input1 = EnterHexadecimal("                   Type first input: ");
 			int n = input1.length();
 			while (n < 32)
 			{
@@ -891,7 +891,7 @@ void MenuQIntHexadecimal()
 			}
 			char* input1_hex = new char[n];
 			strcpy(input1_hex, input1.c_str());
-			cout << "                   Type second input: "; cin >> input2;
+			input2 = EnterHexadecimal("                   Type second input: ");
 			n = input2.length();
 			while (n < 32)
 			{
@@ -916,7 +916,7 @@ void MenuQIntHexadecimal()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                          EQUAL TO                           |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type first input: "; cin >> input1;
+			input1 = EnterHexadecimal("                   Type first input: ");
 			int n = input1.length();
 			while (n < 32)
 			{
@@ -925,7 +925,7 @@ void MenuQIntHexadecimal()
 			}
 			char* input1_hex = new char[n];
 			strcpy(input1_hex, input1.c_str());
-			cout << "                   Type second input: "; cin >> input2;
+			input2 = EnterHexadecimal("                   Type second input: ");
 			n = input2.length();
 			while (n < 32)
 			{
@@ -950,7 +950,7 @@ void MenuQIntHexadecimal()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                        NOT EQUAL TO                         |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type first input: "; cin >> input1;
+			input1 = EnterHexadecimal("                   Type first input: ");
 			int n = input1.length();
 			while (n < 32)
 			{
@@ -959,7 +959,7 @@ void MenuQIntHexadecimal()
 			}
 			char* input1_hex = new char[n];
 			strcpy(input1_hex, input1.c_str());
-			cout << "                   Type second input: "; cin >> input2;
+			input2 = EnterHexadecimal("                   Type second input: ");
 			n = input2.length();
 			while (n < 32)
 			{
@@ -984,7 +984,7 @@ void MenuQIntHexadecimal()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                       GREATER OR EQUAL                      |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type first input: "; cin >> input1;
+			input1 = EnterHexadecimal("                   Type first input: ");
 			int n = input1.length();
 			while (n < 32)
 			{
@@ -993,7 +993,7 @@ void MenuQIntHexadecimal()
 			}
 			char* input1_hex = new char[n];
 			strcpy(input1_hex, input1.c_str());
-			cout << "                   Type second input: "; cin >> input2;
+			input2 = EnterHexadecimal("                   Type second input: ");
 			n = input2.length();
 			while (n < 32)
 			{
@@ -1018,7 +1018,7 @@ void MenuQIntHexadecimal()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                        LESS OR EQUAL                        |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type first input: "; cin >> input1;
+			input1 = EnterHexadecimal("                   Type first input: ");
 			int n = input1.length();
 			while (n < 32)
 			{
@@ -1027,7 +1027,7 @@ void MenuQIntHexadecimal()
 			}
 			char* input1_hex = new char[n];
 			strcpy(input1_hex, input1.c_str());
-			cout << "                   Type second input: "; cin >> input2;
+			input2 = EnterHexadecimal("                   Type second input: ");
 			n = input2.length();
 			while (n < 32)
 			{
@@ -1091,7 +1091,7 @@ void MenuQIntDecimal()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                 CHUYEN TU HE 10 SANG HE 2                   |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type: "; cin >> input;
+			input = EnterDecimal("                   Type: ");
 			cout << "                   Result 10 --> 2: " << boolToString(DecToBin(ConvertStringToQInt(input)));
 			cout << "\nPress any key to continue...";
 			_getch();
@@ -1104,7 +1104,7 @@ void MenuQIntDecimal()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                  CHUYEN TU HE 10 SANG HE 16                  |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type: "; cin >> input;
+			input = EnterDecimal("                   Type: ");
 			cout << "                   Result 10 --> 16: " << charHexToString(DecToHex(ConvertStringToQInt(input)));
 			cout << "\nPress any key to continue...";
 			_getch();
@@ -1117,8 +1117,8 @@ void MenuQIntDecimal()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                            AND                              |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type first input: "; cin >> input1;
-			cout << "                   Type second input: "; cin >> input2;
+			input1 = EnterDecimal("                   Type first input: ");
+			input2 = EnterDecimal("                   Type second input: ");
 			QInt input1_QInt = ConvertStringToQInt(input1);
 			QInt input2_QInt = ConvertStringToQInt(input2);
 			cout << "                   Result AND: " << (input1_QInt & input2_QInt);
@@ -1133,8 +1133,8 @@ void MenuQIntDecimal()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                              OR                             |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type first input: "; cin >> input1;
-			cout << "                   Type second input: "; cin >> input2;
+			input1 = EnterDecimal("                   Type first input: ");
+			input2 = EnterDecimal("                   Type second input: ");
 			QInt input1_QInt = ConvertStringToQInt(input1);
 			QInt input2_QInt = ConvertStringToQInt(input2);
 			cout << "                   Result OR: " << (input1_QInt | input2_QInt);
@@ -1149,8 +1149,8 @@ void MenuQIntDecimal()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                              XOR                            |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type first input: "; cin >> input1;
-			cout << "                   Type second input: "; cin >> input2;
+			input1 = EnterDecimal("                   Type first input: ");
+			input2 = EnterDecimal("                   Type second input: ");
 			QInt input1_QInt = ConvertStringToQInt(input1);
 			QInt input2_QInt = ConvertStringToQInt(input2);
 			cout << "                   Result XOR: " << (input1_QInt ^ input2_QInt);
@@ -1165,7 +1165,7 @@ void MenuQIntDecimal()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                              NOT                            |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type: "; cin >> input;
+			input = EnterDecimal("                   Type: ");
 			QInt input_QInt = ConvertStringToQInt(input);
 			cout << "Result NOT: " << ~input_QInt;
 			cout << "\nPress any key to continue...";
@@ -1179,8 +1179,8 @@ void MenuQIntDecimal()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                              ADD                            |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type first input: "; cin >> input1;
-			cout << "                   Type second input: "; cin >> input2;
+			input1 = EnterDecimal("                   Type first input: ");
+			input2 = EnterDecimal("                   Type second input: ");
 			QInt input1_QInt = ConvertStringToQInt(input1);
 			QInt input2_QInt = ConvertStringToQInt(input2);
 			cout << "                   Result ADD: " << (input1_QInt + input2_QInt);
@@ -1195,8 +1195,8 @@ void MenuQIntDecimal()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                           SUBTRACT                          |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type first input: "; cin >> input1;
-			cout << "                   Type second input: "; cin >> input2;
+			input1 = EnterDecimal("                   Type first input: ");
+			input2 = EnterDecimal("                   Type second input: ");
 			QInt input1_QInt = ConvertStringToQInt(input1);
 			QInt input2_QInt = ConvertStringToQInt(input2);
 			cout << "                   Result SUBTRACT: " << (input1_QInt - input2_QInt);
@@ -1211,8 +1211,8 @@ void MenuQIntDecimal()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                           MULTIPLY                          |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type first input: "; cin >> input1;
-			cout << "                   Type second input: "; cin >> input2;
+			input1 = EnterDecimal("                   Type first input: ");
+			input2 = EnterDecimal("                   Type second input: ");
 			QInt input1_QInt = ConvertStringToQInt(input1);
 			QInt input2_QInt = ConvertStringToQInt(input2);
 			cout << "                   Result MULTIPLY: " << (input1_QInt * input2_QInt);
@@ -1227,8 +1227,8 @@ void MenuQIntDecimal()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                           DIVIDE                          |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type first input: "; cin >> input1;
-			cout << "                   Type second input: "; cin >> input2;
+			input1 = EnterDecimal("                   Type first input: ");
+			input2 = EnterDecimal("                   Type second input: ");
 			QInt input1_QInt = ConvertStringToQInt(input1);
 			QInt input2_QInt = ConvertStringToQInt(input2);
 			cout << "                   Result DIVIDE: " << (input1_QInt / input2_QInt);
@@ -1243,7 +1243,7 @@ void MenuQIntDecimal()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                          SHIFT LEFT                         |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type: "; cin >> input1;
+			input1 = EnterDecimal("                   Type: ");
 			cout << "                   Shift left x times: "; cin >> input2;
 			QInt input1_QInt = ConvertStringToQInt(input1);
 			cout << "                   Result SHIFT LEFT: " << (input1_QInt << stoi(input2));
@@ -1258,7 +1258,7 @@ void MenuQIntDecimal()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                          SHIFT RIGHT                         |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type: "; cin >> input1;
+			input1 = EnterDecimal("                   Type: ");
 			cout << "                   Shift right x times: "; cin >> input2;
 			QInt input1_QInt = ConvertStringToQInt(input1);
 			cout << "                   Result SHIFT RIGHT: " << (input1_QInt >> stoi(input2));
@@ -1273,7 +1273,7 @@ void MenuQIntDecimal()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                          ROTATE LEFT                        |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type: "; cin >> input1;
+			input1 = EnterDecimal("                   Type: ");
 			cout << "                   Rotate left x times: "; cin >> input2;
 			QInt input1_QInt = ConvertStringToQInt(input1);
 			rol(input1_QInt, stoi(input2));
@@ -1289,7 +1289,7 @@ void MenuQIntDecimal()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                         ROTATE RIGHT                        |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type: "; cin >> input1;
+			input1 = EnterDecimal("                   Type: ");
 			cout << "                   Rotate right x times: "; cin >> input2;
 			QInt input1_QInt = ConvertStringToQInt(input1);
 			ror(input1_QInt, stoi(input2));
@@ -1305,8 +1305,8 @@ void MenuQIntDecimal()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                        GREATER THAN                         |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type first input: "; cin >> input1;
-			cout << "                   Type second input: "; cin >> input2;
+			input1 = EnterDecimal("                   Type first input: ");
+			input2 = EnterDecimal("                   Type second input: ");
 			QInt input1_QInt = ConvertStringToQInt(input1);
 			QInt input2_QInt = ConvertStringToQInt(input2);
 			cout << "                   Result GREATER THAN: ";
@@ -1323,8 +1323,8 @@ void MenuQIntDecimal()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                          LESS THAN                          |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type first input: "; cin >> input1;
-			cout << "                   Type second input: "; cin >> input2;
+			input1 = EnterDecimal("                   Type first input: ");
+			input2 = EnterDecimal("                   Type second input: ");
 			QInt input1_QInt = ConvertStringToQInt(input1);
 			QInt input2_QInt = ConvertStringToQInt(input2);
 			cout << "                   Result LESS THAN: ";
@@ -1341,8 +1341,8 @@ void MenuQIntDecimal()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                          EQUAL TO                           |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type first input: "; cin >> input1;
-			cout << "                   Type second input: "; cin >> input2;
+			input1 = EnterDecimal("                   Type first input: ");
+			input2 = EnterDecimal("                   Type second input: ");
 			QInt input1_QInt = ConvertStringToQInt(input1);
 			QInt input2_QInt = ConvertStringToQInt(input2);
 			cout << "                   Result EQUAL TO: ";
@@ -1359,8 +1359,8 @@ void MenuQIntDecimal()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                        NOT EQUAL TO                         |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type first input: "; cin >> input1;
-			cout << "                   Type second input: "; cin >> input2;
+			input1 = EnterDecimal("                   Type first input: ");
+			input2 = EnterDecimal("                   Type second input: ");
 			QInt input1_QInt = ConvertStringToQInt(input1);
 			QInt input2_QInt = ConvertStringToQInt(input2);
 			cout << "                   Result NOT EQUAL TO: ";
@@ -1377,8 +1377,8 @@ void MenuQIntDecimal()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                       GREATER OR EQUAL                      |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type first input: "; cin >> input1;
-			cout << "                   Type second input: "; cin >> input2;
+			input1 = EnterDecimal("                   Type first input: ");
+			input2 = EnterDecimal("                   Type second input: ");
 			QInt input1_QInt = ConvertStringToQInt(input1);
 			QInt input2_QInt = ConvertStringToQInt(input2);
 			cout << "                   Result GREATER OR EQUAL: ";
@@ -1395,8 +1395,8 @@ void MenuQIntDecimal()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                        LESS OR EQUAL                        |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type first input: "; cin >> input1;
-			cout << "                   Type second input: "; cin >> input2;
+			input1 = EnterDecimal("                   Type first input: ");
+			input2 = EnterDecimal("                   Type second input: ");
 			QInt input1_QInt = ConvertStringToQInt(input1);
 			QInt input2_QInt = ConvertStringToQInt(input2);
 			cout << "                   Result LESS OR EQUAL: ";
@@ -1448,7 +1448,7 @@ void MenuQFloat()
 			cout << "+-------------------------------------------------------------+" << endl;
 			cout << "|                 CHUYEN TU HE 2 SANG HE 10                   |" << endl;
 			cout << "+-------------------------------------------------------------+" << endl;
-			cout << "                   Type: "; cin >> input;
+			input = EnterBinary("                   Type: ");
 			cout << "                   Result 2 --> 10: " << QfloatBitToString(input);
 			cout << "\nPress any key to continue...";
 			_getch();
